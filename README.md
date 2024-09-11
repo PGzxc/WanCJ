@@ -59,8 +59,22 @@ import ohos.router.*
 
 ![v1-home](resource\v1\v1-home.png)
 
+### 3.2 v2.0
+
+* 网络请求框架封装(HttpRequest+HttpService)
+* 网络请求结果序列化及工具类(String->JsonObject)、(JsonObject->Bean)
+* 自定义工具栏组件TitleBar
+* 首页显示
+
+图示
+
+![v2-home](resource\v2\v2-home.png)
 
 
-<!--v1-->
+
+
+
+
 
 [v1-home]:resource/v1/v1_home.png
+[v2-home]:resource/v2/v2_home.png

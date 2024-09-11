@@ -24,7 +24,7 @@ class MyView {
                 TabContent {
                     HomePage()
                 }
-                .tabBar(icon: if(this.currentIndex == 0){ getResourceMedia(@r(app.media.ic_home_selected))} else {getResourceMedia(@r(app.media.ic_home))}, text: "首页")
+                .tabBar(icon: if(this.currentIndex == 0){ getResourceMedia(@r(app.media.ic_home_selected))} else {getResourceMedia(@r(app.media.ic_home))}, text: "首页").backgroundColor(0xF5F5F5)
                 .id("tab0")
                 TabContent {
                     RoutePage()
@@ -49,11 +49,12 @@ class MyView {
             .barHeight(70)
             .animationDuration(400)
             .width(100.percent)
-            .backgroundColor(0xF5F5F5)
+            .backgroundColor(Color.WHITE) //Bar背景色
             .onChange({index: Int32  => this.currentIndex = index})
         }
         .width(100.percent)
         .height(100.percent)
+        .backgroundColor(0xFFF)
         .margin(top: 5)
     }
 }

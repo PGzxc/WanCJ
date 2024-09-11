@@ -6,26 +6,80 @@ package ohos_app_cangjie_entry.pages
 internal import ohos.base.*
 internal import ohos.component.*
 internal import ohos.state_manage.*
+import ohos_app_cangjie_entry.api.*
+import ohos_app_cangjie_entry.bean.*
 import ohos.state_macro_manage.*
+import ohos_app_cangjie_entry.utils.*
+import std.collection.*
+import ohos.hilog.*
+import std.collection.*
+import encoding.json.*
+import serialization.serialization.*
 
 /**
 * Home首页
 */
 @Component
 public class HomePage {
+    var bannerCtr: SwiperController = SwiperController()
+    @State var datas:ArrayList<ArticleItem> = ArrayList<ArticleItem>()
 
-  func build() {
-        Column() {
-            Text("HomePage")
-            .textAlign(TextAlign.Center)
-            .fontSize(50)
-            .fontColor(0x182431)
-            .opacity(0.4)
-            .height(100.percent)
-        }
-        .width(100.percent)
-        .height(100.percent)
-        .backgroundColor(Color.WHITE)
+     protected override func aboutToAppear() {
+        var searchBean =  HttpRequest.homeList()
+        this.datas = searchBean.data.getOrThrow().datas.getOrThrow()
+        Hilog.debug(1, "test", searchBean.data.getOrThrow().size.toString())
+        Hilog.debug(1, "test", "集合大小=${datas.size},${datas.get(0).getOrThrow().title}")
     }
-	
+    protected override func onPageShow() {
+
+    }
+
+    @Builder
+    func bannerUI(){
+        Swiper(bannerCtr) {
+            ForEach(MockService.bannerList, itemGeneratorFunc: { banner:Banner,index:Int64=>
+                        Image(banner.imagePath).height(26.percent).width(100.percent).onClick{ evt=>
+                            Hilog.debug(1, "click", "点击了${banner.url}")
+                            var str:String = "{\"title\": \"${banner.title}\",\"url\":\"${banner.url}\"}"
+                             //Hilog.debug(1, "url", "点击了${str1}")
+                             Router.push(url: "WebPage",params:Utils.String2JsonObject(Utils.getWebURL(banner.title, banner.url)))
+                        }
+                    })
+            }.autoPlay(true).vertical(false).width(100.percent).curve(Curve.LinearOutSlowIn)
+        .onChange({ index =>})
+
+    }
+
+
+    func build() {
+
+        Stack(Alignment.TopStart){
+            Column() {
+                List( space: 0, initialIndex: 0 ) {
+                    //第一个Item-Banner
+                    ListItem(){
+                        bannerUI()
+                    }
+                    //第二个Item-ListArticle
+                    if(this.datas.size>0){
+                        ForEach(this.datas, itemGeneratorFunc: { articleItem:ArticleItem,index:Int64 =>
+                                ListItem(){
+                                    ArticleItemView(articleItem:articleItem)
+                                }.onClick{ evt =>
+                                    Router.push(url: "WebPage",params:Utils.String2JsonObject(Utils.getWebURL(articleItem.title, articleItem.link)))
+                                }
+                            })
+                    }
+                }
+                .listDirection(Axis.Vertical) // 排列方向
+                .scrollBar(BarState.Off)
+                .edgeEffect(EdgeEffect.Spring) // 边缘效果设置为Spring
+                .width(100.percent)
+                }
+            .width(100.percent)
+            .height(100.percent)
+            .backgroundColor(0xFFFFFF)
+            .padding(top: 5.px )
+        }
+    }
 }
