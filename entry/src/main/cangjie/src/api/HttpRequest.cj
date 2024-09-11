@@ -14,11 +14,17 @@ import ohos.state_manage.*
 
 public interface  HttpRequest {
 
+     //1-测试地址
       static func testURL():ResponseResult<HarmonyData>{
         return HttpService<HarmonyData>.getInstance().httpRequestGet(HttpConfig.testURL)
       }
+     //2-首页List请求
       static func homeList():ResponseResult<SearchData>{
             return HttpService<SearchData>.getInstance().httpRequestPost(HttpConfig.homeArticleList, "k=鸿蒙")
+      }
+      //3-工具请求
+      static func getTool():ResponseResult<ArrayList<ToolItem>>{
+        return HttpService<ArrayList<ToolItem>>.getInstance().httpRequestGet(HttpConfig.toolsURL)
       }
 }
 

@@ -10,5 +10,8 @@ public class HttpConfig {
 
     //2-首页
     public static var homeArticleList = "https://www.wanandroid.com/article/query/0/json"
+
+    //4-工具
+    public static var toolsURL = "https://wanandroid.com/tools/list/json"
 	
 }

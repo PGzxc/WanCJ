@@ -70,6 +70,13 @@ import ohos.router.*
 
 ![v2-home](resource\v2\v2-home.png)
 
+### 3.3 v3.0
+
+* 工具页面(网络请求+解析+显示)
+
+图示
+
+![v3-tool](resource\v3\v3.0-tool.png)
 
 
 
@@ -78,3 +85,4 @@ import ohos.router.*
 
 [v1-home]:resource/v1/v1_home.png
 [v2-home]:resource/v2/v2_home.png
+[v3-tool]:resource/v3/v3.0-tool.png
