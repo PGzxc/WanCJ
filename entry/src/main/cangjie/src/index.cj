@@ -29,7 +29,7 @@ class MyView {
                 TabContent {
                     RoutePage()
                 }
-                .tabBar(icon: if(this.currentIndex == 1){ getResourceMedia(@r(app.media.ic_route_selected))} else {getResourceMedia(@r(app.media.ic_route))}, text: "路线")
+                .tabBar(icon: if(this.currentIndex == 1){ getResourceMedia(@r(app.media.ic_course_selected))} else {getResourceMedia(@r(app.media.ic_course))}, text: "课程")
                 .id("tab1")
                 TabContent() {
                     ToolsPage()

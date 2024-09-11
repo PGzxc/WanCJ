@@ -129,7 +129,7 @@ public class ArticleItemView {
         .width(100.percent)
         .height(140)
         .padding(top: 5, right: 10, bottom: 5, left: 10)
-        .borderWidth(0.5)
+        .borderWidth(1)
         .borderColor(Color.GRAY)
         .justifyContent(FlexAlign.SpaceEvenly)
         .backgroundColor(0xF5F5F5)

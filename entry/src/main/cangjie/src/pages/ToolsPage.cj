@@ -21,8 +21,7 @@ import serialization.serialization.*
 */
 @Component
 public class ToolsPage {
-    @State
-    var datas: ArrayList<ToolItem> = ArrayList<ToolItem>()
+    @State var datas: ArrayList<ToolItem> = ArrayList<ToolItem>()
 
     protected override func aboutToAppear() {
         var toolsResult = HttpRequest.getTool()

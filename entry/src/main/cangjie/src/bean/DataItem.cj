@@ -7,7 +7,7 @@ import std.math.*
 import encoding.json.*
 import std.collection.*
 
-// MARK: - Links
+// MARK: - Links+CourseItem
 public class DataItem <:Serializable<DataItem>{
 
     public var articleList: Option<ArrayList<ArticleItem>> = Option<ArrayList<ArticleItem>>.None

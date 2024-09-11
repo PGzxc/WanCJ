@@ -78,6 +78,14 @@ import ohos.router.*
 
 ![v3-tool](resource\v3\v3.0-tool.png)
 
+### 3.4 v4.0
+
+* 路线修改为课程
+* 课程页面完成
+
+图示
+
+![v4-course](resource\v4\v4-course.png)
 
 
 
@@ -86,3 +94,4 @@ import ohos.router.*
 [v1-home]:resource/v1/v1_home.png
 [v2-home]:resource/v2/v2_home.png
 [v3-tool]:resource/v3/v3.0-tool.png
+[v4-course]:resource/v4/v4-course.png

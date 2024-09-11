@@ -22,7 +22,11 @@ public interface  HttpRequest {
       static func homeList():ResponseResult<SearchData>{
             return HttpService<SearchData>.getInstance().httpRequestPost(HttpConfig.homeArticleList, "k=鸿蒙")
       }
-      //3-工具请求
+     //3-课程请求
+      static func getChapter():ResponseResult<ArrayList<DataItem>>{
+            return HttpService<ArrayList<DataItem>>.getInstance().httpRequestGet(HttpConfig.chatperURL)
+      }
+      //4-工具请求
       static func getTool():ResponseResult<ArrayList<ToolItem>>{
         return HttpService<ArrayList<ToolItem>>.getInstance().httpRequestGet(HttpConfig.toolsURL)
       }
