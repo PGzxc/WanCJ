@@ -18,12 +18,8 @@ public class MePage {
 
   func build() {
           Column() {
-            Text("MePage")
-            .textAlign(TextAlign.Center)
-            .fontSize(50)
-            .fontColor(0x182431)
-            .opacity(0.4)
-            .height(100.percent)
+            MineHead()
+            MineSettings()
         }
         .width(100.percent)
         .height(100.percent)

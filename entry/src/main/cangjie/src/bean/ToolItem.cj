@@ -37,7 +37,7 @@ public class ToolItem <:Serializable<ToolItem>{
 
 
     }
-        public static func deserialize(dm: DataModel): ToolItem {
+    public static func deserialize(dm: DataModel): ToolItem {
         var dms = match (dm) {
             case data: DataModelStruct => data
             case _ => throw Exception("this data is not DataModelStruct")

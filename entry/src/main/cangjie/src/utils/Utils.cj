@@ -43,12 +43,12 @@ public class Utils {
         return "--"
     }
     //3-获取String类型名
-    public static func getNamebyString(name:String):String{
+    public static func getNamebyString(name:String,other:String):String{
 
         if (!isEmpty<String>(name)){
             return name
         }
-        return ""
+        return other
     }
 
     //4-序列化：String->JsonObject

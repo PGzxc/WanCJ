@@ -37,9 +37,9 @@ public class ArticleItemView {
         //var aa = item.tags.getOrThrow()[0].name
         this.author = Utils.getArticleUser(articleItem)
         this.hasSuperChapterName = !Utils.isEmpty<String>(item.superChapterName)
-        this.superChapterName = Utils.getNamebyString(item.superChapterName)
+        this.superChapterName = Utils.getNamebyString(item.superChapterName,"")
         this.hasChapterName = !Utils.isEmpty<String>(item.chapterName)
-        this.chapterName = Utils.getNamebyString(item.chapterName)
+        this.chapterName = Utils.getNamebyString(item.chapterName,"")
 
     }
 

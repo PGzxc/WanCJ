@@ -21,6 +21,8 @@ import serialization.serialization.*
 */
 @Component
 public class HomePage {
+
+    @State var isLoading:Bool = true
     var bannerCtr: SwiperController = SwiperController()
     @State var datas:ArrayList<ArticleItem> = ArrayList<ArticleItem>()
 
@@ -29,6 +31,7 @@ public class HomePage {
         this.datas = searchBean.data.getOrThrow().datas.getOrThrow()
         Hilog.debug(1, "test", searchBean.data.getOrThrow().size.toString())
         Hilog.debug(1, "test", "集合大小=${datas.size},${datas.get(0).getOrThrow().title}")
+        this.isLoading = false
     }
     protected override func onPageShow() {
 
@@ -76,10 +79,18 @@ public class HomePage {
                 .edgeEffect(EdgeEffect.Spring) // 边缘效果设置为Spring
                 .width(100.percent)
                 }
-            .width(100.percent)
-            .height(100.percent)
-            .backgroundColor(0xFFFFFF)
-            .padding(top: 5.px )
+                .width(100.percent)
+                .height(100.percent)
+                .backgroundColor(0xFFFFFF)
+                .padding(top: 5.px )
+
+            //2-Loading
+            if(this.isLoading){
+                LoadingProgress()
+                .color(Color.BLUE)
+                .width(80.percent)
+                .height(80.percent)
+             }
         }
     }
 }
