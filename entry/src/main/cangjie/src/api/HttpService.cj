@@ -59,10 +59,7 @@ public class HttpService<T> where T <: Serializable<T> {
         let httpRequest = createHttp();
         try {
             // Hilog.info(0, "test", "resp===: 开始请求")
-            httpRequest.request(
-                url,
-                {
-                    err, resp =>
+            httpRequest.request(url,{ err, resp =>
                     if (let Some(e) <- err) {
                         Hilog.info(1, "test", "exception: ${e.message}")
                         var jo = Utils.String2JsonObject(Utils.getResult(400, e.message, ""))
