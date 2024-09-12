@@ -57,7 +57,7 @@ import ohos.router.*
 
 图示
 
-![v1-home](resource\v1\wancj-v1_home.png)
+![v1-home][v1-home]
 
 ### 3.2 v2.0
 
@@ -68,7 +68,7 @@ import ohos.router.*
 
 图示
 
-![v2-home](resource\v2\wancj-v2-home.png)
+![v2-home][v2-home]
 
 ### 3.3 v3.0
 
@@ -76,7 +76,7 @@ import ohos.router.*
 
 图示
 
-![v3-tool](resource\v3\wancj-v3-tool.png)
+![v3-tool][v3-tool]
 
 ### 3.4 v4.0
 
@@ -85,7 +85,7 @@ import ohos.router.*
 
 图示
 
-![v4-course](resource\v4\wancj-v4-course.png)
+![v4-course][v4-course]
 
 ### 3.5 v5.0
 
@@ -93,7 +93,7 @@ import ohos.router.*
 
 图示
 
-![v5-mine](resource\v5\wancj-v5-mine.png)
+![v5-mine][v5-mine]
 
 ### 3.6 v6.0
 * 提出文本中的html标签
@@ -101,14 +101,14 @@ import ohos.router.*
 
 图示
 
-![v6.0-rm-html](resource\v6\wancj-v6-rm-html.png)
+![v6-rm-html][v6-rm-html]
 
 
 
 
-[v1-home]:resource/v1/wancj-v1_home.png
-[v2-home]:resource/v2/wancj-v2-home.png
-[v3-tool]:resource/v3/wancj-v3-tool.png
-[v4-course]:resource/v4/wancj-v4-course.png
-[v5-mine]:resource/v5/wancj-v5-mine.png
-[v6-rm-html]:resource/v6/wancj-v6-rm-html.png
+[v1-home]:https://cdn.jsdelivr.net/gh/PGzxc/CDN/blog-resume/wancj-v1_home.png
+[v2-home]:https://cdn.jsdelivr.net/gh/PGzxc/CDN/blog-resume/wancj-v2-home.png
+[v3-tool]:https://cdn.jsdelivr.net/gh/PGzxc/CDN/blog-resume/wancj-v3-tool.png
+[v4-course]:https://cdn.jsdelivr.net/gh/PGzxc/CDN/blog-resume/wancj-v4-course.png
+[v5-mine]:https://cdn.jsdelivr.net/gh/PGzxc/CDN/blog-resume/wancj-v5-mine.png
+[v6-rm-html]:https://cdn.jsdelivr.net/gh/PGzxc/CDN/blog-resume/wancj-v6-rm-html.png
