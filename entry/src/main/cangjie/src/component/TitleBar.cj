@@ -7,6 +7,7 @@ import ohos.component.*
 internal import ohos.state_manage.*
 internal import ohos_app_cangjie_entry.api.*
 internal import ohos_app_cangjie_entry.bean.*
+internal import ohos_app_cangjie_entry.utils.*
 import ohos.state_macro_manage.*
 internal import ohos.webview.*
 internal import ohos.router.*
@@ -26,11 +27,12 @@ public class TitleBar {
             .height(@r(app.float.vp30))
             .onClick{ evt=> Router.back() }
 
-            Text(this.title)
+            Text(Utils.formatHtml(this.title))
             //.width(20.percent)
             .height(50)
             //.backgroundColor(0xF5DEB3)
             .textAlign(TextAlign.Center)
+            .textOverflow(TextOverflow.Ellipsis)
             .fontColor(Color.BLACK)
             .maxLines(1)
             .fontSize(20)

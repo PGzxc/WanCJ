@@ -95,11 +95,11 @@ public class Utils {
     //2-格式化字符串
     public static func formatHtml(html:String){
         var data:String = ""
-        if (!isEmpty(html)){
+        if (!isEmpty<String>(html)){
             var regSymbol = Regex("&.*;")
-            var regHtml = Regex("/<[^>]*>/g")
-           // data = regHtml.matcher(html).find().toString()
-
+            var regHtml = Regex("</?[^>]+>")  //html标签正则
+            let r =  regHtml.matcher(html)
+            data= r.replaceAll("")
         }
         return data
     }

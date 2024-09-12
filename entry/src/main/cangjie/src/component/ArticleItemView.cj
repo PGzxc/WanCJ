@@ -87,7 +87,7 @@ public class ArticleItemView {
             //第2行
             Flex(FlexParams(direction: FlexDirection.Row)) {
                 Column() {
-                    Text(this.articleItem.title)
+                    Text(Utils.formatHtml(this.articleItem.title))
                     //.width(Constants.FULL_PERCENT)
                     .maxLines(2)
                     .fontSize(20)
