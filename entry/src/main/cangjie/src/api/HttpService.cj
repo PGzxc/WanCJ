@@ -47,14 +47,10 @@ public class  HttpService<T> where T<:Serializable<T>{
                 method: RequestMethod.POST, // 可选，默认为http.RequestMethod.GET
                 extraData: HttpData.STRING_DATA(params),
                 expectDataType: HttpDataType.STRING, // 可选，指定返回数据的类型
-                //usingCache: true, // 可选，默认为true
-                //priority: 1, // 可选，默认为1
                 // 开发者根据自身业务需要添加header字段
                 //header: HashMap<String, String>([("content-type", "application/json")]),
                 readTimeout: 60000, // 可选，默认为60000ms
                 connectTimeout: 60000, // 可选，默认为60000ms
-                //usingProtocol: HttpProtocol.HTTP1_1, // 可选，协议类型默认值由系统自动指定
-                //usingProxy: UsingProxy.USE_DEFAULT, //可选，默认不使用网络代理，自API 10开始支持该属性
             )
        return  httpRequest(url, option)
     }
@@ -68,27 +64,17 @@ public class  HttpService<T> where T<:Serializable<T>{
                         Hilog.info(1, "test","exception: ${e.message}")
                         var jo =  Utils.String2JsonObject(Utils.getResult(400, e.message, ""))
                         this.responseResult=  Utils.JsonObject2ResponseResult<T>(jo)
-
-//                  this.responseResult.errorCode = 400
-//                  this.responseResult.errorMsg = e.message
-//                  this.responseResult.data = ""
              }
               if (let Some(r) <- resp) {
                   Hilog.info(1, "test", "resp===: ${r.result}")
                   //if(r.responseCode==
                          var jo =  Utils.String2JsonObject(r.result.toString())
                          this.responseResult=  Utils.JsonObject2ResponseResult<T>(jo)
-                       // this.responseResult.errorCode = 200
-                       // this.responseResult.errorMsg = "请求成功"
-                       // this.responseResult.data = r.result.toString()
 
               } else {
                   Hilog.info(1, "test", "response is none")
                         var jo =  Utils.String2JsonObject(Utils.getResult(404, "response is none", ""))
                         this.responseResult=  Utils.JsonObject2ResponseResult<T>(jo)
-                  //this.responseResult.errorCode = 404
-                  //this.responseResult.errorMsg = "response is none"
-                  //this.responseResult.data = ""
               }
                    httpRequest.destroy()
               }, options: option)
@@ -98,15 +84,10 @@ public class  HttpService<T> where T<:Serializable<T>{
         }catch (exception:Exception) {
                   var jo =  Utils.String2JsonObject(Utils.getResult(500, "${exception.message}", "出错了"))
                   this.responseResult=  Utils.JsonObject2ResponseResult<T>(jo)
-              //this.responseResult.errorCode = 500
-              //this.responseResult.errorMsg = "${exception.message}"
-              //this.responseResult.data = "出错了"
               return responseResult
         }finally {
             //sleep(Duration.second * 1)
             //return responseResult
         }
-
     }
-
 }
