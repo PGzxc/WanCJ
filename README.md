@@ -96,7 +96,7 @@ import ohos.router.*
 ![v5-mine][v5-mine]
 
 ### 3.6 v6.0
-* 提出文本中的html标签
+* 剔除文本中的html标签
 * 包含首页标题+TitleBar标题
 
 图示
