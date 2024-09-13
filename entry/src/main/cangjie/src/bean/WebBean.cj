@@ -11,7 +11,7 @@ import std.collection.*
 * 传递网页数据：标题+链接
 */
 
-public class WebBean <:BaseBean {
+public class WebBean <:Serializable<WebBean> {
      public var title:String = ""
      public var url:String = ""
 

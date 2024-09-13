@@ -33,7 +33,7 @@ public class ArticleItemView {
     protected override func aboutToAppear() {
         //Hilog.debug(1, "test", "ArticleItemView=${articleItem.author}")
         let item = this.articleItem
-        this.hasTag = Utils.isEmpty<ArticleItem>(item.tags.getOrThrow())
+        this.hasTag = Utils.isEmpty<Array<TagItem>>(item.tags.getOrThrow())
         //var aa = item.tags.getOrThrow()[0].name
         this.author = Utils.getArticleUser(articleItem)
         this.hasSuperChapterName = !Utils.isEmpty<String>(item.superChapterName)
@@ -48,7 +48,7 @@ public class ArticleItemView {
         //第一行
             Row() {
                     //Text(this.articleItem.tags.getOrThrow()[0].name)
-                Text("鸿蒙")
+                Text(Utils.getNamebyString(this.tag, "鸿蒙"))
                     .width(40)
                     .height(20)
                     .fontSize(12)

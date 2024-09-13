@@ -37,6 +37,9 @@ public class RoutePage {
                                 ListItem(){
                                     ChapterItemView(dataItem:dataItem)
                                 }.onClick{ evt =>
+                                      var aa:JsonObject = Utils.Bean2JsonObject(dataItem)
+                                      //Hilog.debug(1, "test", "tools=${aa.toString()}")
+                                      Router.push(url: "ChapterListPage",params:Utils.Bean2JsonObject(dataItem))
                                 }
                             })
                     }

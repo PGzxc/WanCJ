@@ -27,7 +27,7 @@ public class HomePage {
     @State var datas:ArrayList<ArticleItem> = ArrayList<ArticleItem>()
 
      protected override func aboutToAppear() {
-        var searchBean =  HttpRequest.homeList()
+        var searchBean =  HttpRequest.homeList(0)
         this.datas = searchBean.data.getOrThrow().datas.getOrThrow()
         Hilog.debug(1, "test", searchBean.data.getOrThrow().size.toString())
         Hilog.debug(1, "test", "集合大小=${datas.size},${datas.get(0).getOrThrow().title}")

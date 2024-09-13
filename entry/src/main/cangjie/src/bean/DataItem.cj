@@ -22,7 +22,7 @@ public class DataItem <:Serializable<DataItem>{
     public var name: String = ""
     public var order:Int64 = 0
     public var parentChapterId:Int64 = 0
-    public var `type`: Int64 = 0
+    //public var `type`: Int64 = 0 //此处解析易出错
     public var userControlSetTop: Bool = false
     public var visible: Int64 = 0
 
@@ -40,7 +40,7 @@ public class DataItem <:Serializable<DataItem>{
         .add(field<String>("name", name))
         .add(field<Int64>("order", order))
         .add(field<Int64>("parentChapterId", parentChapterId))
-        .add(field<Int64>("`type`", `type`))
+        //.add(field<Int64>("`type`", `type`))
         .add(field<Bool>("userControlSetTop", userControlSetTop))
         .add(field<Int64>("visible", visible))
 
@@ -63,7 +63,7 @@ public class DataItem <:Serializable<DataItem>{
         result.name = String.deserialize(dms.get("name"))
         result.order = Int64.deserialize(dms.get("order"))
         result.parentChapterId = Int64.deserialize(dms.get("parentChapterId"))
-        result.`type` = Int64.deserialize(dms.get("type"))
+        //result.`type` = Int64.deserialize(dms.get("type"))
         result.userControlSetTop = Bool.deserialize(dms.get("userControlSetTop"))
         result.visible = Int64.deserialize(dms.get("visible"))
 

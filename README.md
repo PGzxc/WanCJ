@@ -103,7 +103,12 @@ import ohos.router.*
 
 ![v6-rm-html][v6-rm-html]
 
+### 3.7 v7.0
+* 课程下文章列表
+* 工具类Utils:JsonObject——>Bean
 
+图示
+![cjapp-v7-course-list](resource\v7\cjapp-v7-course-list.png)
 
 
 [v1-home]:https://cdn.jsdelivr.net/gh/PGzxc/CDN/blog-resume/wancj-v1_home.png
