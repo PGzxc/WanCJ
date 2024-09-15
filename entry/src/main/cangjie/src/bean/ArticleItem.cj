@@ -41,7 +41,7 @@ public class ArticleItem <:Serializable<ArticleItem>{
     public var superChapterName: String = ""
     public var tags: Option<Array<TagItem>> = Option<Array<TagItem>>.None
     public var title: String = ""
-    public var `type`:Int64 = 0
+    //public var `type`:Int64 = 0
     public var userId:Int64 = 0
     public var visible:Int64 = 0
     public var zan: Int64 =0
@@ -79,7 +79,7 @@ public class ArticleItem <:Serializable<ArticleItem>{
          .add(field<String>("superChapterName", superChapterName))
          .add(field<Option<Array<TagItem>>>("tags", tags))
          .add(field<String>("title", title))
-         .add(field<Int64>("`type`", `type`))
+         //.add(field<Int64>("`type`", `type`))
          .add(field<Int64>("userId", userId))
          .add(field<Int64>("visible", visible))
          .add(field<Int64>("zan", zan))
@@ -121,7 +121,7 @@ public class ArticleItem <:Serializable<ArticleItem>{
         result.superChapterName = String.deserialize(dms.get("superChapterName"))
         result.tags = Array<TagItem>.deserialize(dms.get("tags"))
         result.title = String.deserialize(dms.get("title"))
-        result.`type` = Int64.deserialize(dms.get("type"))
+        //result.`type` = Int64.deserialize(dms.get("type"))
         result.userId = Int64.deserialize(dms.get("userId"))
         result.visible = Int64.deserialize(dms.get("visible"))
         result.zan = Int64.deserialize(dms.get("zan"))

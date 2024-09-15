@@ -33,9 +33,9 @@ public class UserData <:Serializable<UserData>{
 public class UserInfo <:Serializable<UserInfo>{
 
     public var admin:Bool = false
-    public var chapterTops:Option<Array<String>> = Option<Array<String>>.None
+    public var chapterTops:Option<Array<Int64>> = Option<Array<Int64>>.None
     public var coinCount:Int64 = 0
-    public var collectIds:Option<Array<String>> = Option<Array<String>>.None
+    public var collectIds:Option<Array<Int64>> = Option<Array<Int64>>.None
     public var email:String = ""
     public var icon:String = ""
     public var id:Int64 = 0
@@ -43,21 +43,21 @@ public class UserInfo <:Serializable<UserInfo>{
     public var password:String = ""
     public var publicName:String = ""
     public var token:String = ""
-    public var `type`:Int64 = 0
+    //public var `type`:Int64 = 0 //特殊符号，易出错，暂停解析
     public var username:String = ""
 
      public func serialize(): DataModel {
         return DataModelStruct()
          .add(field<Bool>("admin", admin))
-         .add(field<Option<Array<String>>>("chapterTops", chapterTops))
+         .add(field<Option<Array<Int64>>>("chapterTops", chapterTops))
          .add(field<Int64>("coinCount", coinCount))
-         .add(field<Option<Array<String>>>("collectIds", collectIds))
+         .add(field<Option<Array<Int64>>>("collectIds", collectIds))
          .add(field<String>("email", email))
          .add(field<String>("icon", icon))
          .add(field<Int64>("id", id))
          .add(field<String>("nickname", nickname))
          .add(field<String>("password", password))
-         .add(field<Int64>("`type`", `type`))
+         //.add(field<Int64>("`type`", `type`))
          .add(field<String>("username", username))
 
 
@@ -69,14 +69,14 @@ public class UserInfo <:Serializable<UserInfo>{
         }
         var result = UserInfo()
         result.admin = Bool.deserialize(dms.get("admin"))
-        result.chapterTops = Option<Array<String>>.deserialize(dms.get("chapterTops"))
+        result.chapterTops = Option<Array<Int64>>.deserialize(dms.get("chapterTops"))
         result.coinCount = Int64.deserialize(dms.get("coinCount"))
-        result.collectIds = Option<Array<String>>.deserialize(dms.get("collectIds"))
+        result.collectIds = Option<Array<Int64>>.deserialize(dms.get("collectIds"))
         result.email = String.deserialize(dms.get("email"))
         result.icon = String.deserialize(dms.get("icon"))
         result.id = Int64.deserialize(dms.get("id"))
         result.nickname = String.deserialize(dms.get("nickname"))
-        result.`type` = Int64.deserialize(dms.get("type"))
+        //result.`type` = Int64.deserialize(dms.get("type"))
         result.username = String.deserialize(dms.get("username"))
 
         return result

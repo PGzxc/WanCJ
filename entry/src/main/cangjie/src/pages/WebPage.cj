@@ -31,9 +31,9 @@ public class WebPage{
     protected override func aboutToAppear() {
         //this.url= Router.getParams().getOrThrow();
         var jsonObj = Router.getParamsObject()
-         Hilog.debug(1, "jsonObj", "点击了${jsonObj.toString()}")
+         //Hilog.debug(1, "jsonObj", "点击了${jsonObj.toString()}")
          webBean =  Utils.JsonObject2Bean<WebBean>(jsonObj)
-         Hilog.debug(1, "webBean", "点击了${webBean.toString()}")
+         //Hilog.debug(1, "webBean", "点击了${webBean.toString()}")
     }
     func build(){
         Stack(){

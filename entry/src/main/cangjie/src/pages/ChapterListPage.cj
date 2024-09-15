@@ -29,7 +29,7 @@ public class ChapterListPage {
          var jsonObj = Router.getParamsObject()
          //Hilog.debug(1, "test", "点击了${jsonObj.toString()}")
          dataItem =  Utils.JsonObject2Bean<DataItem>(jsonObj)
-         var toolsResult = HttpRequest.getSupterChapter(0, dataItem.id)
+         var toolsResult = HttpRequest.getSupterChapterReq(0, dataItem.id)
          this.datas = toolsResult.data.getOrThrow().datas.getOrThrow()
          for(i in 0..datas.size){
             datas[i].envelopePic = dataItem.cover //添加封面图

@@ -110,6 +110,19 @@ import ohos.router.*
 图示
 ![cjapp-v7-course-list](resource\v7\cjapp-v7-course-list.png)
 
+### 3.8 v8.0
+
+* 数据持久化保存：PersistentStorage.persistProp("Cookie", "")、@StorageLink["Cookie"] var cookie: String = ""用于保存用户登录cookie
+* UI界面：用户登录/注册页面、我的数据渲染
+* 问题：从登录注册返回时，Router.back()无法渲染，Router.push(url: "MePage")不显示导航
+
+图示
+
+|  ![cjapp-v8-login](resource\v8\cjapp-v8-login.png)  | ![cjapp-v8-register](resource\v8\cjapp-v8-register.png) |
+| :-------------------------------------------------: | :-----------------------------------------------------: |
+| ![cjapp-8-me-data](resource\v8\cjapp-8-me-data.png) |                                                         |
+
+
 
 [v1-home]:https://cdn.jsdelivr.net/gh/PGzxc/CDN/blog-resume/wancj-v1_home.png
 [v2-home]:https://cdn.jsdelivr.net/gh/PGzxc/CDN/blog-resume/wancj-v2-home.png

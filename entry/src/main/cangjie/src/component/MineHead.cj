@@ -11,6 +11,8 @@ internal import std.collection.*
 import ohos.resource_manager.*
 import cj_res_entry.app //用于导入@r
 import ohos.hilog.*
+import ohos.emitter.*
+
 import ohos_app_cangjie_entry.utils.*
 
 /**
@@ -28,11 +30,27 @@ public class MineHead {
     @State var username: String = '';
 
     protected override func aboutToAppear() {
-
+        Hilog.debug(1, "test", "MineHead-aboutToAppear")
+        var userResult = HttpRequest.userInfoReq()
+        Hilog.debug(1, "test", "用户信息：errorCode=${userResult.errorCode},errorMsg=${userResult.errorMsg}")
+        if(userResult.errorCode == 0){
+            userData = userResult.data.getOrThrow()
+            username = userData.userInfo.getOrThrow().username
+            coinCount = userData.userInfo.getOrThrow().coinCount.toString()
+            level = userData.coinInfo.getOrThrow().level.toString()
+            collectIds = userData.userInfo.getOrThrow().collectIds.getOrThrow().size.toString()
+            rank = userData.coinInfo.getOrThrow().rank
+        }
     }
-
+    protected override func onPageShow() {
+        Hilog.debug(1, "test", "MineHead-onPageShow")
+    }
+//    protected override func onBackPress() {
+//        return false
+//    }
     // 在Home页面中
     func jumpLoginClick() {
+        Router.push(url: "LoginRegisterPage")
     }
 
     func jumpPath(path: String) {
@@ -93,7 +111,7 @@ public class MineHead {
                     .height(30)
                 }
                 .width(100.percent)
-                .onClick {evt =>}
+                .onClick {evt => this.jumpLoginClick() }
 
                 if (!Utils.isEmpty<String>(username)) {
                     Flex(FlexParams(justifyContent: FlexAlign.SpaceBetween)) {

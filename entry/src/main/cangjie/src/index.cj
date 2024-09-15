@@ -18,6 +18,13 @@ class MyView {
      var controller: TabsController = TabsController()
      @State var currentIndex: Int32 = 0
 
+    protected override func aboutToAppear() {
+        Hilog.debug(1, "test", "MyView-aboutToAppear")
+    }
+     protected override func onPageShow() {
+       Hilog.debug(1, "test", "MyView-onPageShow")
+     }
+
     func build() {
         Column() {
             Tabs(BarPosition.End, this.controller) {

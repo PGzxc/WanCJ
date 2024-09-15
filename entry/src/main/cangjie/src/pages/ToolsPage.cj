@@ -19,14 +19,17 @@ import serialization.serialization.*
 /**
 * Tools工具
 */
+@Entry
 @Component
 public class ToolsPage {
     @State var datas: ArrayList<ToolItem> = ArrayList<ToolItem>()
 
     protected override func aboutToAppear() {
-        var toolsResult = HttpRequest.getTool()
-        this.datas = toolsResult.data.getOrThrow()
-        Hilog.debug(1, "test", "tools=${datas.size.toString()}")
+        var toolsResult = HttpRequest.getToolReq()
+        if(toolsResult.errorCode == 0){
+             this.datas = toolsResult.data.getOrThrow()
+            //Hilog.debug(1, "test", "tools=${datas.size.toString()}")
+        }
     }
 
     func build() {
@@ -44,7 +47,7 @@ public class ToolsPage {
         }
         .width(100.percent)
         .height(100.percent)
-        .backgroundColor(0xFFFFFF)
+        .backgroundColor(0xF5F5F5)
         .padding(top: 5.px)
     }
 }

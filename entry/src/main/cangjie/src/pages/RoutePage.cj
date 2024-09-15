@@ -18,15 +18,18 @@ import serialization.serialization.*
 /**
 * Route路线
 */
+@Entry
 @Component
 public class RoutePage {
 
  @State var datas: ArrayList<DataItem> = ArrayList<DataItem>()
 
     protected override func aboutToAppear() {
-        var toolsResult = HttpRequest.getChapter()
-        this.datas = toolsResult.data.getOrThrow()
-        Hilog.debug(1, "test", "tools=${datas.size.toString()}")
+        var toolsResult = HttpRequest.getChapterReq()
+        if(toolsResult.errorCode == 0){
+            this.datas = toolsResult.data.getOrThrow()
+            //Hilog.debug(1, "test", "tools=${datas.size.toString()}")
+        }
     }
 
     func build() {
@@ -53,7 +56,7 @@ public class RoutePage {
         }
         .width(100.percent)
         .height(100.percent)
-        .backgroundColor(0xFFFFFF)
+        .backgroundColor(0xF5F5F5)
         .padding(top: 5.px)
     }
 	

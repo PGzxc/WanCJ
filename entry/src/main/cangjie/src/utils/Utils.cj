@@ -27,7 +27,7 @@ public class Utils {
         } else if (data is ArrayList<T>) {
             return (data as ArrayList<T>).getOrThrow().isEmpty()
         } else if(data is Serializable<T>){
-            return data.serialize().toJson().toString().isEmpty()
+            return data.serialize().toJson().toString().isEmpty() //待验证
         } else {
             return false
         }
@@ -44,13 +44,21 @@ public class Utils {
         }
         return "--"
     }
-    //3-获取String类型名
+    //3-如果name为空，取值other
     public static func getNamebyString(name:String,other:String):String{
 
         if (!isEmpty<String>(name)){
             return name
         }
         return other
+    }
+    //4-用于取代三元运算符，如果isTrue为真去值first，否则取值second
+    public static func getNamebyVariable(isTrue:Bool,first:String,second:String):String{
+
+        if (isTrue){
+            return first
+        }
+        return second
     }
 
     //4-序列化：String->JsonObject

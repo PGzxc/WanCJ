@@ -19,6 +19,7 @@ import serialization.serialization.*
 /**
 * Home首页
 */
+@Entry
 @Component
 public class HomePage {
 
@@ -27,10 +28,11 @@ public class HomePage {
     @State var datas:ArrayList<ArticleItem> = ArrayList<ArticleItem>()
 
      protected override func aboutToAppear() {
-        var searchBean =  HttpRequest.homeList(0)
-        this.datas = searchBean.data.getOrThrow().datas.getOrThrow()
-        Hilog.debug(1, "test", searchBean.data.getOrThrow().size.toString())
-        Hilog.debug(1, "test", "集合大小=${datas.size},${datas.get(0).getOrThrow().title}")
+        var searchResult =  HttpRequest.homeListReq(0)
+        if(searchResult.errorCode == 0){
+            this.datas = searchResult.data.getOrThrow().datas.getOrThrow()
+             //Hilog.debug(1, "test", searchBean.data.getOrThrow().size.toString())
+        }
         this.isLoading = false
     }
     protected override func onPageShow() {
@@ -52,7 +54,6 @@ public class HomePage {
         .onChange({ index =>})
 
     }
-
 
     func build() {
 
@@ -81,15 +82,21 @@ public class HomePage {
                 }
                 .width(100.percent)
                 .height(100.percent)
-                .backgroundColor(0xFFFFFF)
+                .backgroundColor(0xF5F5F5)
                 .padding(top: 5.px )
 
             //2-Loading
             if(this.isLoading){
-                LoadingProgress()
-                .color(Color.BLUE)
-                .width(80.percent)
-                .height(80.percent)
+                Column(){
+                    LoadingProgress()
+                    .color(Color.BLUE)
+                    .width(60.percent)
+                    .height(60.percent)
+                }
+                .width(100.percent)
+                .height(100.percent)
+                .alignItems(HorizontalAlign.Center)
+                .justifyContent(FlexAlign.Center)
              }
         }
     }
