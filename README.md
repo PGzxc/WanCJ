@@ -122,6 +122,15 @@ import ohos.router.*
 | :-------------------------------------------------: | :-----------------------------------------------------: |
 | ![cjapp-8-me-data](resource\v8\cjapp-8-me-data.png) |                                                         |
 
+### 3.9 v9.0
+
+* 导入Refresh组件实现下拉刷新
+* 首页下拉刷新
+
+图示
+![cjapp-9-refresh](resource\v9\cjapp-9-refresh.png)
+
+
 
 
 [v1-home]:https://cdn.jsdelivr.net/gh/PGzxc/CDN/blog-resume/wancj-v1_home.png

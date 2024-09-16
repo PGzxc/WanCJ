@@ -14,6 +14,8 @@ import std.collection.*
 import ohos.hilog.*
 import std.collection.*
 import encoding.json.*
+import std.time.*
+import std.sync.*
 import serialization.serialization.*
 
 /**
@@ -23,7 +25,8 @@ import serialization.serialization.*
 @Component
 public class HomePage {
 
-    @State var isLoading:Bool = true
+    @State var isRefreshing: Bool = false //控制刷新
+    @State var isLoading:Bool = true //控制加载loading
     var bannerCtr: SwiperController = SwiperController()
     @State var datas:ArrayList<ArticleItem> = ArrayList<ArticleItem>()
 
@@ -54,50 +57,70 @@ public class HomePage {
         .onChange({ index =>})
 
     }
+    //下拉刷新数据
+    func freshData(){
+        if(isRefreshing == true){
+            Timer.once(Duration.second*1){ =>  //倒计时1S后，切换刷新状态
+                    aboutToAppear() //调用api
+                    isRefreshing = false
+                  }
+        }
+    }
+
+    @Builder
+    func loadingUI() {
+        Column() {
+            LoadingProgress()
+            .color(Color.BLUE)
+            .width(60.percent)
+            .height(60.percent)
+        }
+        .width(100.percent)
+        .height(100.percent)
+        .alignItems(HorizontalAlign.Center)
+        .justifyContent(FlexAlign.Center)
+    }
 
     func build() {
-
-        Stack(Alignment.TopStart){
+       Refresh(RefreshParams(refreshing: @Binder(this.isRefreshing))) {
+         Stack(Alignment.TopStart) {
             Column() {
-                List( space: 0, initialIndex: 0 ) {
+                List(space: 0, initialIndex: 0) {
                     //第一个Item-Banner
-                    ListItem(){
+                    ListItem() {
                         bannerUI()
                     }
                     //第二个Item-ListArticle
-                    if(this.datas.size>0){
-                        ForEach(this.datas, itemGeneratorFunc: { articleItem:ArticleItem,index:Int64 =>
-                                ListItem(){
-                                    ArticleItemView(articleItem:articleItem)
-                                }.onClick{ evt =>
-                                    Router.push(url: "WebPage",params:Utils.String2JsonObject(Utils.getWebURL(articleItem.title, articleItem.link)))
-                                }
-                            })
+                    if (this.datas.size > 0) {
+                        ForEach(this.datas,itemGeneratorFunc: { articleItem: ArticleItem, index: Int64 =>
+                                        ListItem() { ArticleItemView(articleItem: articleItem) }.onClick { evt =>
+                                            Router.push(url: "WebPage",
+                                            params: Utils.String2JsonObject(
+                                            Utils.getWebURL(articleItem.title, articleItem.link)))
+                                        }
+                                    })
                     }
-                }
-                .listDirection(Axis.Vertical) // 排列方向
-                .scrollBar(BarState.Off)
-                .edgeEffect(EdgeEffect.Spring) // 边缘效果设置为Spring
-                .width(100.percent)
+                }.listDirection(Axis.Vertical) // 排列方向
+                    .scrollBar(BarState.Off)
+                    .edgeEffect(EdgeEffect.Spring) // 边缘效果设置为Spring
+                    .width(100.percent)
                 }
                 .width(100.percent)
                 .height(100.percent)
                 .backgroundColor(0xF5F5F5)
-                .padding(top: 5.px )
+                .padding(top: 5.px)
 
             //2-Loading
-            if(this.isLoading){
-                Column(){
-                    LoadingProgress()
-                    .color(Color.BLUE)
-                    .width(60.percent)
-                    .height(60.percent)
+            if (this.isLoading) {
+                    loadingUI()
                 }
-                .width(100.percent)
-                .height(100.percent)
-                .alignItems(HorizontalAlign.Center)
-                .justifyContent(FlexAlign.Center)
-             }
+            }
+        }
+        .onStateChange{refreshStatus: RefreshStatus =>
+
+        }
+        .onRefreshing{ =>
+            freshData()
         }
     }
 }
