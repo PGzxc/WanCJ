@@ -9,6 +9,7 @@ import ohos_app_cangjie_entry.api.*
 import ohos_app_cangjie_entry.bean.*
 import ohos.state_macro_manage.*
 import ohos_app_cangjie_entry.utils.*
+import ohos_app_cangjie_entry.component.*
 import ohos_app_cangjie_entry.utils
 import std.collection.*
 import ohos.hilog.*
@@ -46,14 +47,14 @@ public class LoginRegisterPage{
             var loginResult:ResponseResult<UserInfo> = HttpRequest.loginReq(username, password)
             Hilog.debug(1, "test", "loginResult=${loginResult.errorCode}")
             //Emitter.on("eventId", f)
-//            if(loginResult.errorCode == 0){
-//                //保存cookie，并跳转
-//                 Hilog.debug(1, "test", "跳转")
-//            }else { //出错了
-//
-//            }
-            Router.push(url: "MePage")
-            //Router.back()
+            if(loginResult.errorCode == 0){
+                //保存cookie，并跳转
+                //Hilog.debug(1, "test", "跳转")
+                //Router.push(url: "MePage")
+                 Router.back()
+            }else { //出错了
+
+            }
             this.isShowProgress = false
         }
     }
@@ -64,7 +65,6 @@ public class LoginRegisterPage{
         }else{
              this.isShowProgress = true
              var registerResult:ResponseResult<UserInfo> = HttpRequest.registerReq(username, password,repassword)
-             this.isShowProgress = false
              Hilog.debug(1, "test", "registerResult=${registerResult.errorMsg}")
              if(registerResult.errorCode == 0){ //成功
                 //保存cookie，跳转
@@ -74,6 +74,7 @@ public class LoginRegisterPage{
              }else { //失败
                 Hilog.debug(1, "test", "失败原因：${registerResult.errorMsg}")
              }
+             this.isShowProgress = false
         }
     }
 

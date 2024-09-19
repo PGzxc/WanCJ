@@ -19,7 +19,6 @@ import serialization.serialization.*
 /**
 * Tools工具
 */
-@Entry
 @Component
 public class ToolsPage {
     @State var datas: ArrayList<ToolItem> = ArrayList<ToolItem>()

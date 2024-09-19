@@ -12,7 +12,6 @@ import ohos.hilog.*
 /**
 * Me我
 */
-@Entry
 @Component
 public class MePage  {
 

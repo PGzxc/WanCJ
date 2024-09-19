@@ -18,7 +18,6 @@ import serialization.serialization.*
 /**
 * Route路线
 */
-@Entry
 @Component
 public class RoutePage {
 

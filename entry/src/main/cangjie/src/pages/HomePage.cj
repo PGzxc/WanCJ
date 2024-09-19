@@ -21,7 +21,6 @@ import serialization.serialization.*
 /**
 * Home首页
 */
-@Entry
 @Component
 public class HomePage {
 
@@ -48,7 +47,7 @@ public class HomePage {
             ForEach(MockService.bannerList, itemGeneratorFunc: { banner:Banner,index:Int64=>
                         Image(banner.imagePath).height(26.percent).width(100.percent).onClick{ evt=>
                             Hilog.debug(1, "click", "点击了${banner.url}")
-                            var str:String = "{\"title\": \"${banner.title}\",\"url\":\"${banner.url}\"}"
+                            //var str:String = "{\"title\": \"${banner.title}\",\"url\":\"${banner.url}\"}"
                              //Hilog.debug(1, "url", "点击了${str1}")
                              Router.push(url: "WebPage",params:Utils.String2JsonObject(Utils.getWebURL(banner.title, banner.url)))
                         }
