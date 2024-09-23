@@ -2,7 +2,7 @@
 ## 一 开发环境
 
 * 操作系统：Windows 11 专业版 23H2
-* 开发工具：DevEco Studio NEXT Bet1 5.0.3.800 版本
+* 开发工具：DevEco Studio NEXT Bet1 5.0.3.810 版本
 * 插件：Cangjie Support Plugin(5.0.3.800)
 * 编译SDK：5.0.0(12)
 * 开发语言：仓颉(.cj)
@@ -129,6 +129,13 @@ import ohos.router.*
 
 图示
 ![cjapp-9-refresh](resource\v9\cjapp-9-refresh.png)
+
+## 四 存在的问题
+
+* Preview暂时无法预览
+* 刷新能用，下拉不能用
+* 网络请求没有异步等待
+* 路由返回没有Replace方法
 
 
 
