@@ -11,7 +11,7 @@
 
 ## 二 说明
 
-本项目已贡献仓颉应用示例代码，仓库地址：https://gitcode.com/Cangjie/HarmonyOS-Examples/overview
+本项目已贡献仓颉应用示例代码(名字被官方修改为：WebviewMix)，仓库地址：https://gitcode.com/Cangjie/HarmonyOS-Examples/overview
 
 ## 三 鸿蒙(ArkTS)转仓颉(cj)准备
 
