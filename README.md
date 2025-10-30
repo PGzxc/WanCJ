@@ -134,6 +134,12 @@ import ohos.router.*
 图示
 ![cjapp-9-refresh](resource\v9\cjapp-9-refresh.png)
 
+### 4.10 v10.0(2025.10.30)
+
+* sdk由5.0.0(12)升级到5.0.5(17)
+* 仓颉尝鲜版，仅适配(语言变动较大，不再更新功能)
+
+
 ## 五 存在的问题
 
 * Preview暂时无法预览
